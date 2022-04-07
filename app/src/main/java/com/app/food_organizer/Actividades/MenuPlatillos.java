@@ -1,17 +1,16 @@
-package com.app.food_organizer;
+package com.app.food_organizer.Actividades;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.app.food_organizer.R;
 
-    CardView mCardView;
+public class MenuPlatillos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_menu_platillos);
     }
 }
