@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Actividades.MainActivity">
 
     <TextView
@@ -17,8 +18,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/menu_fragment_container"
-        android:background="@color/black">
+        android:id="@+id/menu_fragment_container">
 
     </FrameLayout>
 
