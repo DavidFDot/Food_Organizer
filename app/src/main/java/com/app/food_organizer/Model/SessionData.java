@@ -25,7 +25,7 @@ public class SessionData {
         return mMenuList;
     }
 
-    public Menu getCrime(int id) {
+    public Menu getMenu(int id) {
         for (Menu menu : mMenuList) {
             if (menu.getId() == id) {
                 return menu;
