@@ -4,6 +4,6 @@ import java.util.ArrayList;
 
 public class Platillos {
     private String mNombre;
-    private ArrayList<Platillos> mPlatillos;
+    private ArrayList<Ingredientes> mIngredientes;
 
 }
