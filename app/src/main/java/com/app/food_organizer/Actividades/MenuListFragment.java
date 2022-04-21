@@ -2,12 +2,16 @@ package com.app.food_organizer.Actividades;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,21 +35,34 @@ public class MenuListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_menu_list,container,false);
         mMenuRecycler=view.findViewById(R.id.menu_recyclerView);
-        mMenuRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mMenuRecycler.setLayoutManager(new GridLayoutManager(getActivity(),3));
         updateUi();
         return view;
     }
 
     private void updateUi() {
         SessionData sessionData = SessionData.get(getActivity());
-        List<com.app.food_organizer.Model.Menu> menu = sessionData.getMenus();
+
+        List<Menu> menu = sessionData.getMenus();
+
         mMenuAdapter = new MenuAdapter(menu);
         mMenuRecycler.setAdapter(mMenuAdapter);
     }
 
     private class MenuHolder extends RecyclerView.ViewHolder {
+        private TextView mTitleTextView;
+        private Menu mMenu;
+
+
         public MenuHolder(LayoutInflater inflater, ViewGroup parent) {
+
             super(inflater.inflate(R.layout.list_item_menu, parent, false));
+            mTitleTextView =itemView.findViewById(R.id.menu_title);
+
+        }
+        public void bind(Menu menu){
+            mMenu=menu;
+            mTitleTextView.setText(mMenu.getName());
         }
     }
     private class MenuAdapter extends RecyclerView.Adapter<MenuHolder> {
@@ -63,7 +80,8 @@ public class MenuListFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull MenuHolder holder, int position) {
-
+            Menu menu =mMenus.get(position);
+            holder.bind(menu);
         }
 
 

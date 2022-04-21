@@ -13,7 +13,7 @@ public class SessionData {
 
     private SessionData(Context context) {
         mMenuList = new ArrayList<>();
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 30; i++){
             mMenuList.add(new Menu("Menu #" + i));
         }
     }
