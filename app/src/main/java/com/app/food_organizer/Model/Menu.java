@@ -7,6 +7,11 @@ public class Menu {
     private String nombre;
     private ArrayList<Platillos> mPlatillos;
 
+    public Menu(String nombre) {
+        this.nombre = nombre;
+        mPlatillos = new ArrayList<>();
+    }
+
     public int getId() {
         return id;
     }

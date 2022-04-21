@@ -10,9 +10,8 @@ import com.app.food_organizer.R;
 
 public class MainActivity extends SingleFragmentActivity {
 
-
     @Override
     protected Fragment createFragment() {
-        return null;
+        return new MenuListFragment();
     }
 }

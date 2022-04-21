@@ -2,6 +2,7 @@ package com.app.food_organizer.Model;
 
 import android.content.Context;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SessionData {
@@ -11,6 +12,10 @@ public class SessionData {
     private List<Menu> mMenuList;
 
     private SessionData(Context context) {
+        mMenuList = new ArrayList<>();
+        for (int i = 0; i < 10; i++){
+            mMenuList.add(new Menu("Menu #" + i));
+        }
     }
 
     public static SessionData get(Context context) {
