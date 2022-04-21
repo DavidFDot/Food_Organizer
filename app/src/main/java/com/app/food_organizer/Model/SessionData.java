@@ -32,7 +32,7 @@ public class SessionData {
 
     public Menu getMenu(int id) {
         for (Menu menu : mMenuList) {
-            if (menu.getId() == id) {
+            if (menu.getId().equals(id)) {
                 return menu;
             }
         }

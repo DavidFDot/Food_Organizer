@@ -1,16 +1,11 @@
 package com.app.food_organizer.Actividades;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import android.os.Bundle;
-
-import com.app.food_organizer.R;
-
-public class MenuPlatillos extends AppCompatActivity {
+public class MenuPlatillos extends SingleFragmentActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_platillos);
+    protected Fragment createFragment() {
+        return new PlatillosListFragment();
     }
 }
