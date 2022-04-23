@@ -29,7 +29,6 @@ public class SessionData {
     public List<Menu> getMenus() {
         return mMenuList;
     }
-
     public Menu getMenu(int id) {
         for (Menu menu : mMenuList) {
             if (menu.getId().equals(id)) {
@@ -38,5 +37,6 @@ public class SessionData {
         }
         return null;
     }
+
 
 }
