@@ -26,4 +26,11 @@ public class Menu {
         this.nombre = nombre;
     }
 
+    public ArrayList<Platillos> getPlatillos() {
+        return mPlatillos;
+    }
+
+    public void setPlatillos(ArrayList<Platillos> platillos) {
+        mPlatillos = platillos;
+    }
 }
