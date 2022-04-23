@@ -13,10 +13,10 @@
             android:name=".Actividades.MenuIngredientes"
             android:exported="false" />
         <activity
-            android:name=".Actividades.MenuPlatillos"
+            android:name=".Actividades.PlatillosListActivity"
             android:exported="false" />
         <activity
-            android:name=".Actividades.MainActivity"
+            android:name=".Actividades.MenuListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

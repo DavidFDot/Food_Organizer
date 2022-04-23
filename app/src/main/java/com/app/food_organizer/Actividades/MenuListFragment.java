@@ -21,6 +21,9 @@ import com.app.food_organizer.R;
 import java.util.List;
 
 public class MenuListFragment extends Fragment {
+
+    private TextView mMenuBarText;
+    private Button mCrearButton;
     private RecyclerView mMenuRecycler;
     private MenuAdapter mMenuAdapter;
 
@@ -33,6 +36,18 @@ public class MenuListFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_menu_list, container, false);
+
+        mMenuBarText = view.findViewById(R.id.menu_bar_text);
+
+        mCrearButton = view.findViewById(R.id.menu_bar_crear_button);
+        mCrearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
         mMenuRecycler = view.findViewById(R.id.menu_recyclerView);
         mMenuRecycler.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         updateUi();
@@ -63,7 +78,7 @@ public class MenuListFragment extends Fragment {
             mEnterButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = MenuPlatillos.newIntent(getActivity(), mMenu.getId());
+                    Intent intent = PlatillosListActivity.newIntent(getActivity(), mMenu.getId());
                     startActivity(intent);
                 }
             });

@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class SessionData {
 
@@ -13,10 +14,10 @@ public class SessionData {
 
     private SessionData(Context context) {
         mMenuList = new ArrayList<>();
-        for (int i = 1; i < 30; i++){
+        for (int i = 1; i < 5; i++) {
             mMenuList.add(new Menu("Menu #" + i));
         }
-        for (int i = 1; i < 20; i++){
+        for (int i = 1; i < 20; i++) {
             mMenuList.get(1).getPlatillos().add(new Platillos("platillo #" + i));
         }
     }
@@ -32,7 +33,8 @@ public class SessionData {
     public List<Menu> getMenus() {
         return mMenuList;
     }
-    public Menu getMenu(int id) {
+
+    public Menu getMenu(UUID id) {
         for (Menu menu : mMenuList) {
             if (menu.getId().equals(id)) {
                 return menu;
@@ -40,6 +42,4 @@ public class SessionData {
         }
         return null;
     }
-
-
 }

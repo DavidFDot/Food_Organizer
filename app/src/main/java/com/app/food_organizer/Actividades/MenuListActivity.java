@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import com.app.food_organizer.R;
 
-public class MainActivity extends SingleFragmentActivity {
+public class MenuListActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment() {
