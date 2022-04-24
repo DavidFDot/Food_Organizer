@@ -35,15 +35,17 @@ public class MenuListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_menu_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_menus_platillos_list, container, false);
 
         mMenuBarText = view.findViewById(R.id.menu_bar_text);
+        mMenuBarText.setText("MENUS");
 
         mCrearButton = view.findViewById(R.id.menu_bar_crear_button);
         mCrearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                SessionData.get(getActivity()).getMenus().add(new Menu("New Menu"));
+                updateUi();
             }
         });
 
@@ -87,17 +89,17 @@ public class MenuListFragment extends Fragment {
             mDeleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    SessionData.get(getActivity()).deleteMenu(mMenu.getId());
 
+                    updateUi();
                 }
             });
-
         }
 
         public void bind(Menu menu) {
             mMenu = menu;
             mMenuName.setText(mMenu.getNombre());
         }
-
     }
 
     private class MenuAdapter extends RecyclerView.Adapter<MenuHolder> {
@@ -119,7 +121,6 @@ public class MenuListFragment extends Fragment {
             Menu menu = mMenus.get(position);
             holder.bind(menu);
         }
-
 
         @Override
         public int getItemCount() {

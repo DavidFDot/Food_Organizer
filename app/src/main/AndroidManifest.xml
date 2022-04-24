@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Food_Organizer">
         <activity
-            android:name=".Actividades.MenuIngredientes"
+            android:name=".Actividades.IngredientesListActivity"
             android:exported="false" />
         <activity
             android:name=".Actividades.PlatillosListActivity"

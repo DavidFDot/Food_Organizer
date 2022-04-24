@@ -42,4 +42,12 @@ public class SessionData {
         }
         return null;
     }
+
+    public void deleteMenu(UUID id) {
+        for (int i = 0; i < mMenuList.size(); i++) {
+            if (mMenuList.get(i).getId().equals(id)) {
+                mMenuList.remove(i);
+            }
+        }
+    }
 }

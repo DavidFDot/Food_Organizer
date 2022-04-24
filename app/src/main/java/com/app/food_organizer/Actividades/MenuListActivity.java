@@ -14,6 +14,4 @@ public class MenuListActivity extends SingleFragmentActivity {
     protected Fragment createFragment() {
         return new MenuListFragment();
     }
-
-
 }

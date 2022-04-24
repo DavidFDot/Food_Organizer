@@ -28,7 +28,7 @@
                 android:id="@+id/enter_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter"
+                android:text="Ver"
                 android:textAlignment="center"/>
 
             <Button
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
-                android:text="Delete"
+                android:text="Borrar"
                 android:textSize="12sp" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>

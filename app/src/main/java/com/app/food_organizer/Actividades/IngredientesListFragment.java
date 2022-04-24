@@ -1,6 +1,5 @@
 package com.app.food_organizer.Actividades;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.food_organizer.Model.Menu;
 import com.app.food_organizer.Model.Platillos;
 import com.app.food_organizer.Model.SessionData;
 import com.app.food_organizer.R;
@@ -22,19 +20,21 @@ import com.app.food_organizer.R;
 import java.util.List;
 import java.util.UUID;
 
-public class PlatillosListFragment extends Fragment {
+public class IngredientesListFragment extends Fragment {
 
-    private static final String ARG_MENU_ID = "menu_id";
 
-    private Menu mMenu;
-    private RecyclerView mPLatillosRecycler;
-    private PlatilloAdapter mPlatilloAdapter;
+    private static final String ARG_PLATILLO_ID = "platillo_id";
+
+    private Platillos mPlatillo;
+    private RecyclerView mMenuRecycler;
+    private IngredientesAdapter mIngredientesAdapter;
     private TextView mMenuBarText;
     private Button mCrearButton;
+    private Object mIngredientes;
 
     public static PlatillosListFragment newInstance(UUID menuId) {
         Bundle arguments = new Bundle();
-        arguments.putSerializable(ARG_MENU_ID, menuId);
+        arguments.putSerializable(ARG_PLATILLO_ID, menuId);
 
         PlatillosListFragment fragment = new PlatillosListFragment();
         fragment.setArguments(arguments);
@@ -44,8 +44,8 @@ public class PlatillosListFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UUID menuId = (UUID) getArguments().getSerializable(ARG_MENU_ID);
-        mMenu = SessionData.get(getActivity()).getMenu(menuId);
+        UUID menuId = (UUID) getArguments().getSerializable(ARG_PLATILLO_ID);
+        //mPlatillo = SessionData.get(getActivity()).getMenu(menuId).getPlatillo();
     }
 
     @Nullable
@@ -54,7 +54,7 @@ public class PlatillosListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_menus_platillos_list, container, false);
 
         mMenuBarText = view.findViewById(R.id.menu_bar_text);
-        mMenuBarText.setText("PLATILLOS");
+        mMenuBarText.setText("INGREDIENTES");
 
         mCrearButton = view.findViewById(R.id.menu_bar_crear_button);
         mCrearButton.setOnClickListener(new View.OnClickListener() {
@@ -64,8 +64,8 @@ public class PlatillosListFragment extends Fragment {
             }
         });
 
-        mPLatillosRecycler = view.findViewById(R.id.menu_recyclerView);
-        mPLatillosRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mMenuRecycler = view.findViewById(R.id.menu_recyclerView);
+        mMenuRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         updateUi();
         return view;
     }
@@ -73,10 +73,10 @@ public class PlatillosListFragment extends Fragment {
     private void updateUi() {
         SessionData sessionData = SessionData.get(getActivity());
 
-        List<Platillos> mPlatillos = mMenu.getPlatillos();
+        //List<Platillos> mPlatillos = mMenu.getPlatillos();
 
-        mPlatilloAdapter = new PlatilloAdapter(mPlatillos);
-        mPLatillosRecycler.setAdapter(mPlatilloAdapter);
+        mIngredientesAdapter = new IngredientesAdapter((List<Platillos>) mIngredientes);
+        mMenuRecycler.setAdapter(mIngredientesAdapter);
     }
 
     private class IngredienteHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -98,15 +98,14 @@ public class PlatillosListFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(getActivity(), PlatillosListActivity.class);
-            startActivity(intent);
+
         }
     }
 
-    private class PlatilloAdapter extends RecyclerView.Adapter<IngredienteHolder> {
+    private class IngredientesAdapter extends RecyclerView.Adapter<IngredienteHolder> {
         private List<Platillos> mPlatillos;
 
-        public PlatilloAdapter(List<Platillos> platillos) {
+        public IngredientesAdapter(List<Platillos> platillos) {
             mPlatillos = platillos;
         }
 
