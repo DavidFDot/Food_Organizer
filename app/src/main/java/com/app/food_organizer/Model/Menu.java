@@ -6,7 +6,7 @@ import java.util.UUID;
 public class Menu {
     private UUID mId;
     private String nombre;
-    private ArrayList<Platillos> mPlatillos;
+    private ArrayList<Platillo> mPlatillos;
 
     public Menu(String nombre) {
         this.mId = UUID.randomUUID();
@@ -26,11 +26,20 @@ public class Menu {
         this.nombre = nombre;
     }
 
-    public ArrayList<Platillos> getPlatillos() {
+    public ArrayList<Platillo> getPlatillos() {
         return mPlatillos;
     }
 
-    public void setPlatillos(ArrayList<Platillos> platillos) {
+    public void setPlatillos(ArrayList<Platillo> platillos) {
         mPlatillos = platillos;
+    }
+
+    public Platillo getPlatillo(UUID id) {
+        for (Platillo platillo : mPlatillos) {
+            if (platillo.getId().equals(id)) {
+                return platillo;
+            }
+        }
+        return null;
     }
 }

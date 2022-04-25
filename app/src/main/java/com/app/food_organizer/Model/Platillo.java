@@ -3,12 +3,12 @@ package com.app.food_organizer.Model;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Platillos {
-    private UUID mId;
+public class Platillo {
+    private final UUID mId;
     private String mNombre;
-    private ArrayList<Ingredientes> mIngredientes;
+    private ArrayList<Ingrediente> mIngredientes;
 
-    public Platillos(String nombre) {
+    public Platillo(String nombre) {
         mId = UUID.randomUUID();
         mNombre = nombre;
         mIngredientes = new ArrayList<>();
@@ -26,11 +26,8 @@ public class Platillos {
         mNombre = nombre;
     }
 
-    public ArrayList<Ingredientes> getIngredientes() {
+    public ArrayList<Ingrediente> getIngredientes() {
         return mIngredientes;
     }
 
-    public void setIngredientes(ArrayList<Ingredientes> ingredientes) {
-        mIngredientes = ingredientes;
-    }
 }

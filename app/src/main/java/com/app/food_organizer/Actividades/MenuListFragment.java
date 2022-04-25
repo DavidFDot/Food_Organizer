@@ -2,10 +2,13 @@ package com.app.food_organizer.Actividades;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -66,7 +69,7 @@ public class MenuListFragment extends Fragment {
     }
 
     private class MenuHolder extends RecyclerView.ViewHolder {
-        private TextView mMenuName;
+        private EditText mMenuName;
         private Button mEnterButton;
         private Button mDeleteButton;
         private Menu mMenu;
@@ -75,8 +78,24 @@ public class MenuListFragment extends Fragment {
             super(inflater.inflate(R.layout.list_item_menu, parent, false));
 
             mMenuName = itemView.findViewById(R.id.menu_title);
+            mMenuName.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            mEnterButton = itemView.findViewById(R.id.enter_button);
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    mMenu.setNombre(charSequence.toString());
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
+
+            mEnterButton = itemView.findViewById(R.id.ver_button);
             mEnterButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
