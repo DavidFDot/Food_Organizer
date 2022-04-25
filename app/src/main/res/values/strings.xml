@@ -6,5 +6,4 @@
     <string name="cantidad_label_text">Cantidad:</string>
     <string name="nombre_de_platillo_hint">Nombre de Platillo</string>
     <string name="ver_button_text">VER</string>
-    <string name="borrar_button_text">Borrar</string>
 </resources>
