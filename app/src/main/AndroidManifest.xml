@@ -10,17 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Food_Organizer">
         <activity
-            android:name=".Actividades.IngredientesListActivity"
-            android:screenOrientation="portrait"
+            android:name=".Actividades.ResumenActivity"
             android:exported="false" />
+        <activity
+            android:name=".Actividades.IngredientesListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Actividades.PlatillosListActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Actividades.MenuListActivity"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -34,6 +34,7 @@ public class PlatillosListFragment extends Fragment {
     private PlatilloAdapter mPlatilloAdapter;
     private TextView mMenuBarText;
     private Button mCrearButton;
+    private Button mResumenBotton;
 
     public static PlatillosListFragment newInstance(UUID menuId) {
         Bundle arguments = new Bundle();
@@ -70,6 +71,18 @@ public class PlatillosListFragment extends Fragment {
 
         mPLatillosRecycler = view.findViewById(R.id.menu_recyclerView);
         mPLatillosRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        mResumenBotton = view.findViewById(R.id.boton_resumen);
+        mResumenBotton.setVisibility(View.VISIBLE);
+        mResumenBotton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ResumenActivity.class);
+                intent.putExtra("id_del_menu", mMenu.getId());
+                startActivity(intent);
+            }
+        });
+
         updateUi();
         return view;
     }
