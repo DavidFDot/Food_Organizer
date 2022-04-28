@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Food_Organizer</string>
+    <string name="app_name">Food Organizer</string>
     <string name="ingrediente_hint">Ingrediente</string>
     <string name="cantidad_hint">#</string>
     <string name="borrar_button_text">Borrar</string>

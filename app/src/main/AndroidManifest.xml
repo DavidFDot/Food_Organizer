@@ -11,12 +11,15 @@
         android:theme="@style/Theme.Food_Organizer">
         <activity
             android:name=".Actividades.IngredientesListActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".Actividades.PlatillosListActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".Actividades.MenuListActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
